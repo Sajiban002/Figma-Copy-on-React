@@ -28,3 +28,7 @@
     ```bash
     npm start
     ```
+ 
+Теперь при отправке формы данные выводятся в alert.  
+
+Файл: /scr/pages/Contact/Forms.js
