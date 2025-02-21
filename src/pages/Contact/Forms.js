@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Forms() {
+    const [fullName, namecheck] = useState('');
+    const [email, emailcheck] = useState('');
+    const [type, typecheck] = useState('Select a topic');
+    const [messages, messagecheck] = useState('');
+    const [accepts, acceptcheck] = useState(false);
+
+    const checkstatus = (event) => {
+        event.preventDefault(); 
+        alert(
+            `ФИО: ${fullName}\n` +
+            `Email: ${email}\n` +
+            `Тема: ${type}\n` +
+            `Сообщение: ${messages}\n` +
+            `Условия соглашения: ${accepts}`
+        );
+    };
+
     return (
         <section className="formsContainer">
             <p className="contactUs">Contact Us</p>
             <h2 className="formsTitle">Let's Start a Conversation</h2>
-            <p className="formsDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+            <p className="formsDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
             <div className="formsInfoBox">
                 <div className="formsWorkingHours">
@@ -20,7 +37,7 @@ function Forms() {
                 </div>
             </div>
 
-            <form className="formsForm">
+            <form className="formsForm" onSubmit={checkstatus}>
                 <label htmlFor="fullName" className="formsLabel">Full Name</label>
                 <input
                     type="text"
@@ -28,8 +45,10 @@ function Forms() {
                     name="fullName"
                     placeholder="Full Name"
                     className="formsInput"
+                    value={fullName}
+                    onChange={(e) => namecheck(e.target.value)}
                 />
-
+                
                 <label htmlFor="email" className="formsLabel">Your Email</label>
                 <input
                     type="email"
@@ -37,24 +56,45 @@ function Forms() {
                     name="email"
                     placeholder="Your Email"
                     className="formsInput"
+                    value={email}
+                    onChange={(e) => emailcheck(e.target.value)}
                 />
-
+                
                 <label htmlFor="queryType" className="formsLabel">Query Related</label>
-                <select id="queryType" name="queryType" className="formsSelect">
+                <select
+                    id="queryType"
+                    name="queryType"
+                    className="formsSelect"
+                    value={type}
+                    onChange={(e) => typecheck(e.target.value)}
+                >
                     <option>Select a topic</option>
                     <option>Support</option>
                     <option>Sales</option>
                     <option>Other</option>
                 </select>
-
+                
                 <label htmlFor="message" className="formsLabel">Message</label>
                 <textarea
                     id="message"
                     name="message"
                     placeholder="Message"
                     className="formsTextarea"
+                    value={messages}
+                    onChange={(e) => messagecheck(e.target.value)}
                 ></textarea>
-
+                
+                <div className="formsTerms">
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        name="terms"
+                        checked={accepts}
+                        onChange={(e) => acceptcheck(e.target.checked)}
+                    />
+                    <label htmlFor="terms" className="formsTermsLabel">Я согласен с условиями пользования</label>
+                </div>
+                
                 <button type="submit" className="formsButton">Send Message</button>
             </form>
         </section>
