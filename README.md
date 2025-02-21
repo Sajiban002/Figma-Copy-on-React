@@ -9,7 +9,7 @@
 1.  **Установите зависимости:**
 
     ```bash
-    npm install
+    npx create-react-app figma
     ```
 2.  Установите `router-dom` для навигации:
 
