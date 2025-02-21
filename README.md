@@ -2,7 +2,7 @@
 
 Этот проект - React сайт, созданный на основе макета Figma, состоящего из трех основных страниц: Home, About Us и Contact.
 
-[https://www.figma.com/design/a8wx6iSjafCqs6KXMy8ErH/Client-First-Template-12---Blog-(Community)]
+[Ссылка на Figma](https://www.figma.com/design/a8wx6iSjafCqs6KXMy8ErH/Client-First-Template-12---Blog-(Community))
 
 ## Установка
 
