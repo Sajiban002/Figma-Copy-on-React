@@ -8,14 +8,17 @@ function Forms() {
     const [accepts, acceptcheck] = useState(false);
 
     const checkstatus = (event) => {
-        event.preventDefault(); 
-        alert(
-            `ФИО: ${fullName}\n` +
-            `Email: ${email}\n` +
-            `Тема: ${type}\n` +
-            `Сообщение: ${messages}\n` +
-            `Условия соглашения: ${accepts}`
-        );
+        event.preventDefault();
+        const form = {
+            fullName: fullName,
+            email: email,
+            type: type,
+            messages: messages,
+            accepts: accepts
+        };
+
+        console.log("Данные формы:", form);
+        alert("Ваши данные успешно отправлены!");
     };
 
     return (
@@ -48,7 +51,7 @@ function Forms() {
                     value={fullName}
                     onChange={(e) => namecheck(e.target.value)}
                 />
-                
+
                 <label htmlFor="email" className="formsLabel">Your Email</label>
                 <input
                     type="email"
@@ -59,7 +62,7 @@ function Forms() {
                     value={email}
                     onChange={(e) => emailcheck(e.target.value)}
                 />
-                
+
                 <label htmlFor="queryType" className="formsLabel">Query Related</label>
                 <select
                     id="queryType"
@@ -73,7 +76,7 @@ function Forms() {
                     <option>Sales</option>
                     <option>Other</option>
                 </select>
-                
+
                 <label htmlFor="message" className="formsLabel">Message</label>
                 <textarea
                     id="message"
@@ -83,7 +86,7 @@ function Forms() {
                     value={messages}
                     onChange={(e) => messagecheck(e.target.value)}
                 ></textarea>
-                
+
                 <div className="formsTerms">
                     <input
                         type="checkbox"
@@ -94,7 +97,7 @@ function Forms() {
                     />
                     <label htmlFor="terms" className="formsTermsLabel">Я согласен с условиями пользования</label>
                 </div>
-                
+
                 <button type="submit" className="formsButton">Send Message</button>
             </form>
         </section>
